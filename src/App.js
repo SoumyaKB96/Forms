@@ -1,4 +1,5 @@
 import "./styles.css";
+import Calender from "react-calendar";
 
 export default function App() {
   return (
@@ -24,17 +25,10 @@ export default function App() {
 
           <label>
             Request Type:
-            <select>
-              <option selected value="New Hire">
-                New Hire
-              </option>
-              <option value="Trasnfer From another Siemens Unit">
-                Trasnfer From another Siemens Unit
-              </option>
-              <option value="Re-Hire">Re-Hire</option>
-              <option value="Status Change">Re-Hire</option>
-              <option value="Work Date Extension">Work date Extension</option>
-            </select>
+            <button>Tranfer from another Siemens Unit </button>
+            <button>Re-hire</button>
+            <button>Status Change</button>
+            <button>Work Date extension</button>
           </label>
           <br />
 
@@ -78,6 +72,40 @@ export default function App() {
           <label>
             End date:
             <input type="text" name="name" />
+          </label>
+          <br />
+
+          <label>
+            Comments:
+            <input type="text" name="name" />
+          </label>
+        </div>
+
+        <h4> Employee History</h4>
+        <div classname="EmpHist">
+          <label>
+            Did this person work for Siemens Before ? : *
+            <select>
+              <option selected value="None">
+                Select...
+              </option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </label>
+        </div>
+
+        <h4> Computer Assist Plan</h4>
+        <div classname="CompAssist">
+          <label>
+            Did this person work for Siemens Before ? : *
+            <select>
+              <option selected value="None">
+                Select...
+              </option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
           </label>
         </div>
         <input type="submit" value="Submit" />
