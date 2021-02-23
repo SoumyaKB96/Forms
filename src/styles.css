@@ -13,8 +13,7 @@ select {
   box-sizing: border-box;
 }
 .image {
-  text-align: right;
-  display: initial;
+  float: right;
 }
 
 button {
@@ -42,4 +41,19 @@ button:hover {
 button:click {
   color: white;
   background-color: lightblue;
+}
+button:active {
+  background-color: darkblue;
+  color: white;
+}
+.headings {
+  background-color: lightblue;
+}
+.Names {
+  display: flex;
+  justify-content: space-between;
+}
+.Dates {
+  display: flex;
+  justify-content: space-between;
 }

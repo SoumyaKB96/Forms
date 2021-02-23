@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 
 export default class EmpFrom extends React.Component {
@@ -7,7 +7,14 @@ export default class EmpFrom extends React.Component {
     this.state = {
       istransfer: false,
       selectedImage: null,
-      istransfer: false
+
+      requestType: "",
+      requestId: null,
+      dept: "",
+      fName: "",
+      lName: "",
+      startDate: null,
+      endDate: null
     };
   }
 
@@ -19,13 +26,35 @@ export default class EmpFrom extends React.Component {
   imageUploadHandle = () => {
     axios.post("");
   };
+  transferHandle = () => {
+    this.setState({ istransfer: true });
+  };
 
   render() {
+    let transfer;
+    if (this.state.istransfer) {
+      transfer = (
+        <div>
+          <label>
+            CT US
+            <select>
+              <option selected value="None">
+                Select...
+              </option>
+              <option value="Rda Management">Rda Management</option>
+              <option value="Management Head">Management Head</option>
+              <option value="Head Research">Head Research</option>
+            </select>
+          </label>
+        </div>
+      );
+    }
+
     return (
       <div>
         <h3>Employee Form </h3>
 
-        <h4>Employee Details</h4>
+        <h4 className="headings">Employee Details</h4>
 
         <form>
           <div className="Empdetails">
@@ -56,13 +85,16 @@ export default class EmpFrom extends React.Component {
 
             <label>
               Request Type:
-              <button>Tranfer from another Siemens Unit </button>
+              <button onClick={this.transferHandle}>
+                Tranfer from another Siemens Unit
+              </button>
               <button>Re-hire</button>
               <button>Status Change</button>
               <button>Work Date extension</button>
             </label>
+            {transfer}
             <br />
-            {this.trasnsfer}
+
             <label>
               Cost Center/Department:
               <select>
@@ -83,28 +115,32 @@ export default class EmpFrom extends React.Component {
             <br />
             <br />
 
-            <label>
-              First Name:
-              <input type="text" name="name" />
-            </label>
+            <div className="Names">
+              <label>
+                First Name :
+                <input type="text" name="name" />
+              </label>
 
-            <label>
-              Last Name:
-              <input type="text" name="name" />
-            </label>
-            <br />
-            <br />
+              <label>
+                Last Name :
+                <input type="text" name="name" />
+              </label>
+              <br />
+              <br />
+            </div>
 
-            <label>
-              Start date:
-              <input type="text" name="name" />
-            </label>
+            <div className="Dates">
+              <label>
+                Start date :
+                <input type="date" name="name" />
+              </label>
 
-            <label>
-              End date:
-              <input type="text" name="name" />
-            </label>
-            <br />
+              <label>
+                End date :
+                <input type="date" name="name" />
+              </label>
+              <br />
+            </div>
 
             <label>
               Comments:
@@ -112,7 +148,7 @@ export default class EmpFrom extends React.Component {
             </label>
           </div>
 
-          <h4> Employee History</h4>
+          <h4 className="headings"> Employee History</h4>
           <div classname="EmpHist">
             <label>
               Did this person work for Siemens Before ? : *<button>Yes</button>
@@ -120,7 +156,7 @@ export default class EmpFrom extends React.Component {
             </label>
           </div>
 
-          <h4> Computer Assist Plan</h4>
+          <h4 className="headings"> Computer Assist Plan</h4>
           <div classname="CompAssist">
             <label>
               Did this person work for Siemens Before ? : *
