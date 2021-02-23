@@ -191,6 +191,11 @@ export default class EmpFrom extends React.Component {
             <br />
 
             <label>
+              Employee ID :&nbsp;
+              <input type="text" name="name" size="40" />
+            </label>
+            <br />
+            <label>
               Cost Center/Department:
               <select>
                 <option selected value="None">
@@ -202,11 +207,6 @@ export default class EmpFrom extends React.Component {
               </select>
             </label>
 
-            <label>
-              Employee ID :
-              <input type="text" name="name" size="40" />
-            </label>
-            <hr />
             <div className="Names">
               <label>
                 First Name :
