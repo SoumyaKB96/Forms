@@ -141,10 +141,10 @@ export default class EmpFrom extends React.Component {
 
             <div className="Request">
               <label>
-                Request Type :
+                Request Type :&nbsp;
                 <input
                   type="button"
-                  value="Transfer"
+                  value="Transfer  "
                   onClick={this.transferHandleShow}
                 />
                 <input
@@ -154,7 +154,7 @@ export default class EmpFrom extends React.Component {
                 />
                 <input
                   type="button"
-                  value="Re-Hire"
+                  value="  Re-Hire  "
                   onClick={this.transferHandleHide}
                 />
                 <input
@@ -177,7 +177,7 @@ export default class EmpFrom extends React.Component {
               <input type="button" value="Full Time" />
               <input
                 type="button"
-                value="Intern"
+                value="   Intern   "
                 onClick={this.ContractorHandleHide}
               />
               <input
