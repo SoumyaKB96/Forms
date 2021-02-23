@@ -13,7 +13,9 @@ export default class EmpFrom extends React.Component {
       fName: "",
       lName: "",
       startDate: null,
-      endDate: null
+      endDate: null,
+      isContractor: false,
+      isHistory: false
     };
   }
 
@@ -23,8 +25,25 @@ export default class EmpFrom extends React.Component {
     });
   };
   imageUploadHandle = () => {};
-  transferHandle = () => {
+  transferHandleShow = () => {
     this.setState({ istransfer: true });
+  };
+  transferHandleHide = () => {
+    this.setState({ istransfer: false });
+  };
+  ContractorHandleShow = () => {
+    this.setState({ isContractor: true });
+  };
+  ContractorHandleHide = () => {
+    this.setState({ isContractor: false });
+  };
+
+  historyHandle = (event) => {
+    if (event.target.value === "Yes") {
+      this.setState({ isHistory: true });
+    } else {
+      this.setState({ isHistory: false });
+    }
   };
 
   render() {
@@ -33,15 +52,56 @@ export default class EmpFrom extends React.Component {
       transfer = (
         <div>
           <label>
-            CT US
+            Employee Transferring from CT US :
             <select>
               <option selected value="None">
                 Select...
               </option>
-              <option value="Rda Management">Rda Management</option>
-              <option value="Management Head">Management Head</option>
-              <option value="Head Research">Head Research</option>
+              <option value="Rda Management">1</option>
+              <option value="Management Head">2</option>
+              <option value="Head Research">3</option>
             </select>
+          </label>
+        </div>
+      );
+    }
+
+    let Contractor;
+    if (this.state.isContractor) {
+      Contractor = (
+        <div>
+          <label>
+            If Contractor , what Company They Worked for :
+            <select>
+              <option selected value="None">
+                Select...
+              </option>
+              <option value="1">1</option>
+              <option value="Management Head">2</option>
+              <option value="Head Research">3</option>
+            </select>
+          </label>
+        </div>
+      );
+    }
+
+    let history;
+    if (this.state.isHistory) {
+      history = (
+        <div>
+          <label>
+            GID/Email:
+            <input type="text" name="GID" />
+          </label>
+
+          <label>
+            Last Current Unit
+            <input type="text" name="Comments" />
+          </label>
+          <br />
+          <label>
+            Comments
+            <input type="text" name="Comments" />
           </label>
         </div>
       );
@@ -82,26 +142,52 @@ export default class EmpFrom extends React.Component {
             <div className="Request">
               <label>
                 Request Type :
-                <button className="b1" onClick={this.transferHandle}>
-                  Tranfer
-                </button>
-                <button className="b2">Re-hire</button>
-                <button className="b3">Re-hire</button>
-                <button className="b4">Status Change</button>
-                <button className="b5">Work Date extension</button>
+                <input
+                  type="button"
+                  value="Transfer"
+                  onClick={this.transferHandleShow}
+                />
+                <input
+                  type="button"
+                  value="New Hire"
+                  onClick={this.transferHandleHide}
+                />
+                <input
+                  type="button"
+                  value="Re-Hire"
+                  onClick={this.transferHandleHide}
+                />
+                <input
+                  type="button"
+                  value="Status Change"
+                  onClick={this.transferHandleHide}
+                />
+                <input
+                  type="button"
+                  value="Date Extension"
+                  onClick={this.transferHandleHide}
+                />
               </label>
             </div>
             {transfer}
             <br />
 
             <label>
-              Employee Type:<button>Full-Time</button>
-              <button>Intern </button>
-              <button>Contractor</button>
-              <button>Other </button>
-              <button>Work Date extension</button>
+              Employee Type:
+              <input type="button" value="Full Time" />
+              <input
+                type="button"
+                value="Intern"
+                onClick={this.ContractorHandleHide}
+              />
+              <input
+                type="button"
+                value="Contractor"
+                onClick={this.ContractorHandleShow}
+              />
+              <input type="button" value="Other " />
             </label>
-            {transfer}
+            {Contractor}
             <br />
 
             <label>
@@ -158,9 +244,11 @@ export default class EmpFrom extends React.Component {
           <h4 className="headings"> Employee History</h4>
           <div classname="EmpHist">
             <label>
-              Did this person work for Siemens Before ? : *<button>Yes</button>
-              <button>No</button>
+              Did this person work for Siemens Before ? : *
+              <input type="Button" value="Yes" onClick={this.historyHandle} />
+              <input type="Button" value="No" onClick={this.historyHandle} />
             </label>
+            {history}
           </div>
 
           <h4 className="headings"> Computer Asset PLan</h4>

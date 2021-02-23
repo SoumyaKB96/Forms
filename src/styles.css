@@ -4,6 +4,7 @@
 }
 
 input[type="text"],
+input[type="button"],
 select {
   padding: 12px 10px;
 
@@ -22,7 +23,8 @@ select {
 .b3,
 .b4,
 .b5,
-button {
+button,
+input[type="button"] {
   border: none;
   color: black;
   padding: 10px;
@@ -33,26 +35,24 @@ button {
   margin: 4px;
   cursor: pointer;
   border-radius: 4px;
-
+  z-index: 0;
   transition-duration: 0.4s;
-
-  justify-content: space-between;
 }
 
-.b5:hover {
+.b1:hover,
+.b2:hover,
+.b3:hover {
   color: white; /* Text color */
   background-color: lightblue; /* Remove background color */
-}
-.b1:hover {
-  color: white; /* Text color */
-  background-color: lightblue; /* Remove background color */
+  z-index: 1;
 }
 
 button:click {
   color: white;
   background-color: lightblue;
 }
-button:active {
+button:active,
+input[type="button"]:checked {
   background-color: darkblue;
   color: white;
 }
