@@ -17,19 +17,21 @@ select {
 }
 
 button {
-  background-color: ; /* Green */
   border: none;
   color: black;
   padding: 10px;
-  text-align: top;
+  text-align: center;
   text-decoration: none;
-  display: flexbox;
+
   font-size: 14px;
-  margin: 4px 2px;
+  margin: 4px;
   cursor: pointer;
   border-radius: 4px;
   width: 130px;
+  height: 60px;
   transition-duration: 0.4s;
+  display: inline-flex;
+  justify-content: space-between;
 }
 
 button:hover {

@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React from "react";
 
 export default class EmpFrom extends React.Component {
   constructor(props) {
@@ -23,9 +22,7 @@ export default class EmpFrom extends React.Component {
       selectedImage: URL.createObjectURL(event.target.files[0])
     });
   };
-  imageUploadHandle = () => {
-    axios.post("");
-  };
+  imageUploadHandle = () => {};
   transferHandle = () => {
     this.setState({ istransfer: true });
   };
@@ -85,9 +82,7 @@ export default class EmpFrom extends React.Component {
 
             <label>
               Request Type:
-              <button onClick={this.transferHandle}>
-                Tranfer from another Siemens Unit
-              </button>
+              <button onClick={this.transferHandle}>Tranfer</button>
               <button>Re-hire</button>
               <button>Status Change</button>
               <button>Work Date extension</button>
@@ -156,15 +151,6 @@ export default class EmpFrom extends React.Component {
             </label>
           </div>
 
-          <h4 className="headings"> Computer Assist Plan</h4>
-          <div classname="CompAssist">
-            <label>
-              Did this person work for Siemens Before ? : *
-              <br />
-              <button>Yes</button>
-              <button>No</button>
-            </label>
-          </div>
           <input type="submit" value="Submit" />
         </form>
       </div>
