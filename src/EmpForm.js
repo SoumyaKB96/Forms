@@ -76,15 +76,29 @@ export default class EmpFrom extends React.Component {
                   onChange={this.imageSelectionHandle}
                 />
                 <br />
-                <button onClick={this.imageUploadHandle}>upload</button>
               </label>
             </div>
 
+            <div className="Request">
+              <label>
+                Request Type :
+                <button className="b1" onClick={this.transferHandle}>
+                  Tranfer
+                </button>
+                <button className="b2">Re-hire</button>
+                <button className="b3">Re-hire</button>
+                <button className="b4">Status Change</button>
+                <button className="b5">Work Date extension</button>
+              </label>
+            </div>
+            {transfer}
+            <br />
+
             <label>
-              Request Type:
-              <button onClick={this.transferHandle}>Tranfer</button>
-              <button>Re-hire</button>
-              <button>Status Change</button>
+              Employee Type:<button>Full-Time</button>
+              <button>Intern </button>
+              <button>Contractor</button>
+              <button>Other </button>
               <button>Work Date extension</button>
             </label>
             {transfer}
@@ -101,28 +115,26 @@ export default class EmpFrom extends React.Component {
                 <option value="Head Research">Head Research</option>
               </select>
             </label>
-            <br />
 
             <label>
-              Onboarding Request ID:
-              <input type="text" name="name" />
+              Employee ID :
+              <input type="text" name="name" size="40" />
             </label>
-            <br />
-            <br />
-
+            <hr />
             <div className="Names">
               <label>
                 First Name :
-                <input type="text" name="name" />
+                <input type="text" name="name" size="40" />
               </label>
 
               <label>
                 Last Name :
-                <input type="text" name="name" />
+                <input type="text" name="name" size="40" />
               </label>
               <br />
               <br />
             </div>
+            <br />
 
             <div className="Dates">
               <label>
@@ -147,6 +159,22 @@ export default class EmpFrom extends React.Component {
           <div classname="EmpHist">
             <label>
               Did this person work for Siemens Before ? : *<button>Yes</button>
+              <button>No</button>
+            </label>
+          </div>
+
+          <h4 className="headings"> Computer Asset PLan</h4>
+          <div classname="CompAssist">
+            <label>
+              Will you need a computer for this person ? : *<button>Yes</button>
+              <button>No</button>
+            </label>
+          </div>
+
+          <h4 className="headings"> Communications</h4>
+          <div classname="Comms">
+            <label>
+              Will you need a computer for this person ? : *<button>Yes</button>
               <button>No</button>
             </label>
           </div>

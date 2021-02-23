@@ -5,38 +5,46 @@
 
 input[type="text"],
 select {
-  padding: 12px 20px;
-  margin: 8px 0;
+  padding: 12px 10px;
+
+  margin: 10px 0;
   display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  box-sizing: border-box;
+  border: 0.5px solid #ccc;
+  border-radius: 8px;
 }
+
 .image {
   float: right;
 }
 
+.b1,
+.b2,
+.b3,
+.b4,
+.b5,
 button {
   border: none;
   color: black;
   padding: 10px;
   text-align: center;
   text-decoration: none;
-
+  padding-left: 10px;
   font-size: 14px;
   margin: 4px;
   cursor: pointer;
   border-radius: 4px;
-  width: 130px;
-  height: 60px;
+
   transition-duration: 0.4s;
-  display: inline-flex;
+
   justify-content: space-between;
 }
 
-button:hover {
+.b5:hover {
   color: white; /* Text color */
-
+  background-color: lightblue; /* Remove background color */
+}
+.b1:hover {
+  color: white; /* Text color */
   background-color: lightblue; /* Remove background color */
 }
 
@@ -51,10 +59,7 @@ button:active {
 .headings {
   background-color: lightblue;
 }
-.Names {
-  display: flex;
-  justify-content: space-between;
-}
+.Names,
 .Dates {
   display: flex;
   justify-content: space-between;
