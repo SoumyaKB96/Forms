@@ -16,7 +16,8 @@ export default class EmpFrom extends React.Component {
       startDate: null,
       endDate: null,
       isContractor: false,
-      isHistory: false
+      isHistory: false,
+      purchaseRequest: ""
     };
   }
 
@@ -62,14 +63,7 @@ export default class EmpFrom extends React.Component {
         <div>
           <label>
             Employee Transferring from CT US :
-            <select>
-              <option selected value="None">
-                Select...
-              </option>
-              <option value="Rda Management">1</option>
-              <option value="Management Head">2</option>
-              <option value="Head Research">3</option>
-            </select>
+            <input type="text" name="otherCompany" />
           </label>
         </div>
       );
@@ -81,14 +75,7 @@ export default class EmpFrom extends React.Component {
         <div>
           <label>
             If Contractor , what Company They Worked for :
-            <select>
-              <option selected value="None">
-                Select...
-              </option>
-              <option value="1">1</option>
-              <option value="Management Head">2</option>
-              <option value="Head Research">3</option>
-            </select>
+            <input type="text" name="otherCompany" />
           </label>
         </div>
       );
@@ -98,14 +85,7 @@ export default class EmpFrom extends React.Component {
         <div>
           <label>
             If Other, specify :
-            <select>
-              <option selected value="None">
-                Select...
-              </option>
-              <option value="1">1</option>
-              <option value="Management Head">2</option>
-              <option value="Head Research">3</option>
-            </select>
+            <input type="text" name="otherCompany" />
           </label>
         </div>
       );
@@ -133,6 +113,18 @@ export default class EmpFrom extends React.Component {
       );
     }
 
+    let purchaseOption;
+    if (this.state.purchaseRequest == "Yes") {
+      purchaseOption = (
+        <div>
+          <label>
+            Please enter the Purchase Request :
+            <input type="text" name="Purchase" />
+          </label>
+        </div>
+      );
+    }
+
     return (
       <div>
         <h3>Employee Form </h3>
@@ -146,7 +138,6 @@ export default class EmpFrom extends React.Component {
               <input type="text" name="id" />
             </label>
             <br />
-
             <div className="image">
               <label>
                 <img
@@ -164,7 +155,6 @@ export default class EmpFrom extends React.Component {
                 <br />
               </label>
             </div>
-
             <div className="Request">
               <label>
                 Request Type :&nbsp;
@@ -197,7 +187,6 @@ export default class EmpFrom extends React.Component {
             </div>
             {transfer}
             <br />
-
             <label>
               Employee Type:
               <input
@@ -223,12 +212,11 @@ export default class EmpFrom extends React.Component {
             </label>
             {empTypeOption}
             <br />
-
             <label>
               Employee ID :&nbsp;
               <input type="text" name="name" size="40" />
             </label>
-            <br />
+            &nbsp; &nbsp;&nbsp;
             <label>
               Cost Center/Department:
               <select>
@@ -240,10 +228,9 @@ export default class EmpFrom extends React.Component {
                 <option value="Head Research">Head Research</option>
               </select>
             </label>
-
             <div className="Names">
               <label>
-                First Name :
+                First Name :&nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="text" name="name" size="40" />
               </label>
 
@@ -255,7 +242,6 @@ export default class EmpFrom extends React.Component {
               <br />
             </div>
             <br />
-
             <div className="Dates">
               <label>
                 Start date :
@@ -268,37 +254,41 @@ export default class EmpFrom extends React.Component {
               </label>
               <br />
             </div>
-
             <label>
               Comments:
               <input type="text" name="name" />
             </label>
           </div>
 
-          <h4 className="headings"> Employee History</h4>
-          <div classname="EmpHist">
-            <label>
-              Did this person work for Siemens Before ? : *
-              <input type="Button" value="Yes" onClick={this.historyHandle} />
-              <input type="Button" value="No" onClick={this.historyHandle} />
-            </label>
-            {history}
+          <label>
+            Did this person work for Siemens Before ? : *
+            <input type="Button" value="Yes" onClick={this.historyHandle} />
+            <input type="Button" value="No" onClick={this.historyHandle} />
+          </label>
+          {history}
+
+          <h4 className="headings"> Workspace Requirements</h4>
+          <div classname="Workspace">
+            <p>Please select workspace requirements :</p>
+
+            <label>Computer : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label>
+            <input type="checkbox" />
+            <br />
+            <br />
+
+            <label>Desk Phone : &nbsp;&nbsp;</label>
+            <input type="checkbox" />
+            <br />
+            <br />
+            <label>Mobile Phone : </label>
+            <input type="checkbox" />
+            <br />
+            <br />
           </div>
 
-          <h4 className="headings"> Computer Asset PLan</h4>
-          <div classname="CompAssist">
-            <label>
-              Will you need a computer for this person ? : *<button>Yes</button>
-              <button>No</button>
-            </label>
-          </div>
-
-          <h4 className="headings"> Communications</h4>
-          <div classname="Comms">
-            <label>
-              Will you need a computer for this person ? : *<button>Yes</button>
-              <button>No</button>
-            </label>
+          <h4 className="headings"> Building Access</h4>
+          <div classname="Building">
+            <p>Please select workspace requirements :</p>
           </div>
 
           <input type="submit" value="Submit" />
