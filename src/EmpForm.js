@@ -4,20 +4,27 @@ export default class EmpFrom extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      requestId: null,
+      requestType: "",
       istransfer: false,
       selectedImage: null,
-      empType: "",
 
-      requestType: "",
-      requestId: null,
+      empType: "",
+      isContractor: false,
+      transferDept: "",
+      contractorDept: "",
+      otherDept: "",
+
+      empId: null,
       dept: "",
       fName: "",
       lName: "",
       startDate: null,
       endDate: null,
-      isContractor: false,
+
       isHistory: false,
-      purchaseRequest: ""
+      purchaseRequest: "",
+      system: ""
     };
   }
 
@@ -54,6 +61,15 @@ export default class EmpFrom extends React.Component {
     } else {
       this.setState({ isHistory: false });
     }
+  };
+
+  valueHandle = () => {
+    let nam = event.target.name;
+    let val = event.target.value;
+    this.setState({ [nam]: val });
+  };
+  submitHandle = () => {
+    console.log(this.state);
   };
 
   render() {
@@ -125,17 +141,33 @@ export default class EmpFrom extends React.Component {
       );
     }
 
+    let systemOptions;
+    if (this.state.system == "Other") {
+      systemOptions = (
+        <div>
+          <label>
+            Please specify Other options :
+            <input type="text" name="system" />
+          </label>
+        </div>
+      );
+    }
+
     return (
       <div>
         <h3>Employee Form </h3>
 
         <h4 className="headings">Employee Details</h4>
 
-        <form>
+        <form onSubmit={this.submitHandle}>
           <div className="Empdetails">
             <label>
               Onboarding Request ID:
-              <input type="text" name="id" />
+              <input
+                type="text"
+                name="requestId"
+                onChange={(e) => this.setState({ requestId: e.target.value })}
+              />
             </label>
             <br />
             <div className="image">
@@ -212,31 +244,38 @@ export default class EmpFrom extends React.Component {
             </label>
             {empTypeOption}
             <br />
-            <label>
-              Employee ID :&nbsp;
-              <input type="text" name="name" size="40" />
-            </label>
-            &nbsp; &nbsp;&nbsp;
-            <label>
-              Cost Center/Department:
-              <select>
-                <option selected value="None">
-                  Select...
-                </option>
-                <option value="Rda Management">Rda Management</option>
-                <option value="Management Head">Management Head</option>
-                <option value="Head Research">Head Research</option>
-              </select>
-            </label>
+
+            <div className="DeptInfo"></div>
+
             <div className="Names">
               <label>
                 First Name :&nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="text" name="name" size="40" />
+                <input
+                  type="text"
+                  name="fname"
+                  size="40"
+                  onChange={this.valueHandle}
+                />
               </label>
 
               <label>
                 Last Name :
-                <input type="text" name="name" size="40" />
+                <input
+                  type="text"
+                  name="lname"
+                  size="40"
+                  onChange={this.valueHandle}
+                />
+              </label>
+
+              <label>
+                Employee ID :
+                <input
+                  type="text"
+                  name="empId"
+                  size="40"
+                  onChange={this.valueHandle}
+                />
               </label>
               <br />
               <br />
@@ -244,40 +283,82 @@ export default class EmpFrom extends React.Component {
             <br />
             <div className="Dates">
               <label>
-                Start date :
-                <input type="date" name="name" />
+                Department:
+                <select width="20px">
+                  <option selected value="None">
+                    Select...
+                  </option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="2">3</option>
+                </select>
+              </label>
+              <label>
+                From :
+                <input
+                  type="date"
+                  name="startDate"
+                  onChange={this.valueHandle}
+                />
               </label>
 
               <label>
-                End date :
-                <input type="date" name="name" />
+                Until :
+                <input type="date" name="endDate" onChange={this.valueHandle} />
               </label>
               <br />
             </div>
             <label>
               Comments:
-              <input type="text" name="name" />
+              <input type="text" name="Comment1" onChange={this.valueHandle} />
             </label>
           </div>
 
           <label>
-            Did this person work for Siemens Before ? : *
-            <input type="Button" value="Yes" onClick={this.historyHandle} />
-            <input type="Button" value="No" onClick={this.historyHandle} />
+            Did this person work for Siemens Before ? : *<br />
+            <label>Yes</label>
+            <input
+              type="checkbox"
+              onClick={(e) => this.setState({ isHistory: true })}
+            />
+            <label>No</label>
+            <input
+              type="checkbox"
+              onClick={(e) => this.setState({ isHistory: false })}
+            />
+            {history}
           </label>
-          {history}
 
           <h4 className="headings"> Workspace Requirements</h4>
-          <div classname="Workspace">
+          <div className="Workspace">
             <p>Please select workspace requirements :</p>
 
             <label>System </label>
             <br />
             <label>Desktop</label>
-            <input type="checkbox" />
+            <input
+              type="checkbox"
+              onClick={(e) => this.setState({ system: "Desktop" })}
+            />
 
             <label>Laptop</label>
-            <input type="checkbox" />
+            <input
+              type="checkbox"
+              onClick={(e) => this.setState({ system: "Laptop" })}
+            />
+            <label>Server</label>
+            <input
+              type="checkbox"
+              onClick={(e) => this.setState({ system: "Server" })}
+            />
+
+            <label>Other</label>
+            <input
+              type="checkbox"
+              onClick={(e) => this.setState({ system: "Other" })}
+            />
+
+            {systemOptions}
             <br />
             <br />
             <label>Phone </label>
@@ -292,8 +373,11 @@ export default class EmpFrom extends React.Component {
           </div>
 
           <h4 className="headings"> Building Access</h4>
-          <div classname="Building">
-            <p>Please select workspace requirements :</p>
+          <div className="Building">
+            <label>Work Location</label>
+            <br />
+
+            <label>Seating Location</label>
           </div>
 
           <input type="submit" value="Submit" />

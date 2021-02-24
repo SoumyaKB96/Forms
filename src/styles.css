@@ -1,16 +1,19 @@
 .App {
   font-family: sans-serif;
   padding: 10px;
+
+  background-color: lightcyan;
 }
 
 input[type="text"],
 input[type="button"],
+input[type="date"],
 select {
   padding: 12px 10px;
 
   margin: 10px 0;
   display: inline-block;
-  border: 0.5px solid #ccc;
+  border-color: transparent;
   border-radius: 8px;
 }
 
@@ -39,16 +42,14 @@ input[type="button"] {
   transition-duration: 0.4s;
 }
 
-.b1:hover,
-.b2:hover,
-.b3:hover {
+input[type="button"]:active {
   color: white; /* Text color */
   background-color: lightblue; /* Remove background color */
   z-index: 1;
 }
 
 button:click {
-  color: white;
+  color: lightblue;
   background-color: lightblue;
 }
 button:active,
@@ -57,10 +58,16 @@ input[type="button"]:checked {
   color: white;
 }
 .headings {
-  background-color: lightblue;
+  text-decoration: bold;
 }
+
 .Names,
 .Dates {
   display: flex;
   justify-content: space-between;
+}
+.DeptInfo {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 523px;
 }
