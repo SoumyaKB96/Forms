@@ -280,7 +280,7 @@ export default class EmpFrom extends React.Component {
               </label>
               <br />
             </div>
-            <br />
+
             <div className="Dates">
               <label>
                 Department:&nbsp;&nbsp;&nbsp;&nbsp;
@@ -333,46 +333,46 @@ export default class EmpFrom extends React.Component {
           <h4 className="headings"> Workspace Requirements</h4>
           <div className="Workspace">
             <p>Please select workspace requirements :</p>
-
-            <label>System </label>
-            <br />
-            <label>Desktop</label>
-            <input
-              type="checkbox"
-              onClick={(e) => this.setState({ system: "Desktop" })}
-            />
-
-            <label>Laptop</label>
-            <input
-              type="checkbox"
-              name="Laptop"
-              onClick={(e) => this.setState({ system: "Laptop" })}
-            />
-            <label>Server</label>
-            <input
-              type="checkbox"
-              onClick={(e) => this.setState({ system: "Server" })}
-            />
-
-            <label>Other</label>
-            <input
-              type="checkbox"
-              onClick={(e) => this.setState({ system: "Other" })}
-            />
-
-            {systemOptions}
+            <p>System </p>
+            <div className="system">
+              <input
+                type="checkbox"
+                onClick={(e) => this.setState({ system: "Desktop" })}
+              />
+              Desktop
+              <input
+                type="checkbox"
+                name="Laptop"
+                onClick={(e) => this.setState({ system: "Laptop" })}
+              />
+              Laptop
+              <input
+                type="checkbox"
+                onClick={(e) => this.setState({ system: "Server" })}
+              />
+              Server
+              <input
+                type="checkbox"
+                onClick={(e) => this.setState({ system: "Other" })}
+              />
+              Other
+              {systemOptions}
+            </div>
             <br />
             <br />
             <label>Phone </label>
             <br />
-            <label>Desk </label>
-            <input type="checkbox" />
-            <label>Mobile </label>
-            <input type="checkbox" />
-            <br />
-            <br />
-            <label>Others</label>
+            <div className="Phone">
+              <input type="checkbox" />
+              Desk
+              <input type="checkbox" />
+              Mobile
+              <br />
+              <br />
+            </div>
           </div>
+          <label>Others </label>
+          <input type="text" name="PhoneOthers" />
 
           <h4 className="headings"> Building Access</h4>
           <div className="Building">
