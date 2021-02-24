@@ -7,7 +7,7 @@ export default class EmpFrom extends React.Component {
       requestId: null,
       requestType: "",
       istransfer: false,
-      selectedImage: null,
+      selectedImage: "./download.png",
 
       empType: "",
       isContractor: false,
@@ -160,9 +160,26 @@ export default class EmpFrom extends React.Component {
         <h4 className="headings">Employee Details</h4>
 
         <form onSubmit={this.submitHandle}>
+          <div className="image">
+            <label>
+              <img
+                src={this.state.selectedImage}
+                alt="preview"
+                width="150px"
+                height="150px"
+              />
+              <br />
+              <input
+                type="file"
+                name="image"
+                onChange={this.imageSelectionHandle}
+              />
+              <br />
+            </label>
+          </div>
           <div className="Empdetails">
             <label>
-              Onboarding Request ID:
+              Request ID: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <input
                 type="text"
                 name="requestId"
@@ -170,23 +187,8 @@ export default class EmpFrom extends React.Component {
               />
             </label>
             <br />
-            <div className="image">
-              <label>
-                <img
-                  src={this.state.selectedImage}
-                  alt="preview"
-                  width="50px"
-                  height="50px"
-                />
-                <br />
-                <input
-                  type="file"
-                  name="image"
-                  onChange={this.imageSelectionHandle}
-                />
-                <br />
-              </label>
-            </div>
+            <br />
+
             <div className="Request">
               <label>
                 Request Type :&nbsp;
@@ -244,8 +246,7 @@ export default class EmpFrom extends React.Component {
             </label>
             {empTypeOption}
             <br />
-
-            <div className="DeptInfo"></div>
+            <br />
 
             <div className="Names">
               <label>
@@ -278,12 +279,11 @@ export default class EmpFrom extends React.Component {
                 />
               </label>
               <br />
-              <br />
             </div>
             <br />
             <div className="Dates">
               <label>
-                Department:
+                Department:&nbsp;&nbsp;&nbsp;&nbsp;
                 <select width="20px">
                   <option selected value="None">
                     Select...
@@ -309,10 +309,11 @@ export default class EmpFrom extends React.Component {
               <br />
             </div>
             <label>
-              Comments:
+              Comments:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <input type="text" name="Comment1" onChange={this.valueHandle} />
             </label>
           </div>
+          <br />
 
           <label>
             Did this person work for Siemens Before ? : *<br />
