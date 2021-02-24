@@ -271,19 +271,24 @@ export default class EmpFrom extends React.Component {
           <div classname="Workspace">
             <p>Please select workspace requirements :</p>
 
-            <label>Computer : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label>
+            <label>System </label>
+            <br />
+            <label>Desktop</label>
             <input type="checkbox" />
-            <br />
-            <br />
 
-            <label>Desk Phone : &nbsp;&nbsp;</label>
+            <label>Laptop</label>
             <input type="checkbox" />
             <br />
             <br />
-            <label>Mobile Phone : </label>
+            <label>Phone </label>
+            <br />
+            <label>Desk </label>
+            <input type="checkbox" />
+            <label>Mobile </label>
             <input type="checkbox" />
             <br />
             <br />
+            <label>Others</label>
           </div>
 
           <h4 className="headings"> Building Access</h4>
