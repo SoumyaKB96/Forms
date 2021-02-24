@@ -293,6 +293,7 @@ export default class EmpFrom extends React.Component {
                   <option value="2">3</option>
                 </select>
               </label>
+
               <label>
                 From :
                 <input
@@ -301,7 +302,6 @@ export default class EmpFrom extends React.Component {
                   onChange={this.valueHandle}
                 />
               </label>
-
               <label>
                 Until :
                 <input type="date" name="endDate" onChange={this.valueHandle} />
@@ -317,16 +317,16 @@ export default class EmpFrom extends React.Component {
 
           <label>
             Did this person work for Siemens Before ? : *<br />
-            <label>Yes</label>
             <input
               type="checkbox"
               onClick={(e) => this.setState({ isHistory: true })}
             />
-            <label>No</label>
+            <label>Yes</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <input
               type="checkbox"
               onClick={(e) => this.setState({ isHistory: false })}
-            />
+            />{" "}
+            <label>No</label>
             {history}
           </label>
 
@@ -345,6 +345,7 @@ export default class EmpFrom extends React.Component {
             <label>Laptop</label>
             <input
               type="checkbox"
+              name="Laptop"
               onClick={(e) => this.setState({ system: "Laptop" })}
             />
             <label>Server</label>
