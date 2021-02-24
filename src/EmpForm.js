@@ -6,6 +6,7 @@ export default class EmpFrom extends React.Component {
     this.state = {
       istransfer: false,
       selectedImage: null,
+      empType: "",
 
       requestType: "",
       requestId: null,
@@ -25,17 +26,20 @@ export default class EmpFrom extends React.Component {
     });
   };
   imageUploadHandle = () => {};
-  transferHandleShow = () => {
-    this.setState({ istransfer: true });
-  };
-  transferHandleHide = () => {
-    this.setState({ istransfer: false });
-  };
+
   ContractorHandleShow = () => {
     this.setState({ isContractor: true });
   };
   ContractorHandleHide = () => {
     this.setState({ isContractor: false });
+  };
+  requestTypeHandle = (event) => {
+    this.setState({ requestType: event.target.value });
+    if (this.state.requestType === "Transfer") {
+      this.setState({ istransfer: true });
+    } else {
+      this.setState({ istransfer: false });
+    }
   };
 
   historyHandle = (event) => {
@@ -145,27 +149,27 @@ export default class EmpFrom extends React.Component {
                 <input
                   type="button"
                   value="Transfer  "
-                  onClick={this.transferHandleShow}
+                  onClick={this.requestTypeHandle}
                 />
                 <input
                   type="button"
                   value="New Hire"
-                  onClick={this.transferHandleHide}
+                  onClick={this.requestTypeHandle}
                 />
                 <input
                   type="button"
                   value="  Re-Hire  "
-                  onClick={this.transferHandleHide}
+                  onClick={this.requestTypeHandle}
                 />
                 <input
                   type="button"
                   value="Status Change"
-                  onClick={this.transferHandleHide}
+                  onClick={this.requestTypeHandle}
                 />
                 <input
                   type="button"
                   value="Date Extension"
-                  onClick={this.transferHandleHide}
+                  onClick={this.requestTypeHandle}
                 />
               </label>
             </div>
