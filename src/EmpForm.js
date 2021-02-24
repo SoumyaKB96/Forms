@@ -28,21 +28,23 @@ export default class EmpFrom extends React.Component {
   imageUploadHandle = () => {};
 
   requestTypeHandle = (event) => {
-    this.setState({ requestType: event.target.value });
-    if (this.state.requestType === "Transfer  ") {
+    if (event.target.value === "Transfer  ") {
       this.setState({ istransfer: true });
     } else {
       this.setState({ istransfer: false });
     }
+    this.setState({ requestType: event.target.value });
   };
 
   empTypeHandle = (event) => {
-    this.setState({ empType: event.target.value });
-    if (this.state.empType == "Contractor") {
-      this.setState({ isContractor: true });
+    if (event.target.value === "Contractor") {
+      this.setState({ empType: "Contractor" });
+    } else if (event.target.value === "Other") {
+      this.setState({ empType: "Contracto" });
     } else {
       this.setState({ isContractor: false });
     }
+    this.setState({ empType: event.target.value });
   };
 
   historyHandle = (event) => {
@@ -73,12 +75,29 @@ export default class EmpFrom extends React.Component {
       );
     }
 
-    let Contractor;
-    if (this.state.isContractor) {
-      Contractor = (
+    let empTypeOption;
+    if (this.state.empType === "Contractor") {
+      empTypeOption = (
         <div>
           <label>
             If Contractor , what Company They Worked for :
+            <select>
+              <option selected value="None">
+                Select...
+              </option>
+              <option value="1">1</option>
+              <option value="Management Head">2</option>
+              <option value="Head Research">3</option>
+            </select>
+          </label>
+        </div>
+      );
+    }
+    if (this.state.empType === "Other ") {
+      empTypeOption = (
+        <div>
+          <label>
+            If Other, specify :
             <select>
               <option selected value="None">
                 Select...
@@ -184,25 +203,25 @@ export default class EmpFrom extends React.Component {
               <input
                 type="button"
                 value="Full Time"
-                onClick={this.empTypeHandle}
+                onClick={(e) => this.setState({ empType: e.target.value })}
               />
               <input
                 type="button"
                 value="   Intern   "
-                onClick={this.empTypeHandle}
+                onClick={(e) => this.setState({ empType: e.target.value })}
               />
               <input
                 type="button"
                 value="Contractor"
-                onClick={this.empTypeHandle}
+                onClick={(e) => this.setState({ empType: e.target.value })}
               />
               <input
                 type="button"
                 value="Other "
-                onClick={this.empTypeHandle}
+                onClick={(e) => this.setState({ empType: e.target.value })}
               />
             </label>
-            {Contractor}
+            {empTypeOption}
             <br />
 
             <label>
