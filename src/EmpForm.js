@@ -27,18 +27,21 @@ export default class EmpFrom extends React.Component {
   };
   imageUploadHandle = () => {};
 
-  ContractorHandleShow = () => {
-    this.setState({ isContractor: true });
-  };
-  ContractorHandleHide = () => {
-    this.setState({ isContractor: false });
-  };
   requestTypeHandle = (event) => {
     this.setState({ requestType: event.target.value });
-    if (this.state.requestType === "Transfer") {
+    if (this.state.requestType === "Transfer  ") {
       this.setState({ istransfer: true });
     } else {
       this.setState({ istransfer: false });
+    }
+  };
+
+  empTypeHandle = (event) => {
+    this.setState({ empType: event.target.value });
+    if (this.state.empType == "Contractor") {
+      this.setState({ isContractor: true });
+    } else {
+      this.setState({ isContractor: false });
     }
   };
 
@@ -178,18 +181,26 @@ export default class EmpFrom extends React.Component {
 
             <label>
               Employee Type:
-              <input type="button" value="Full Time" />
+              <input
+                type="button"
+                value="Full Time"
+                onClick={this.empTypeHandle}
+              />
               <input
                 type="button"
                 value="   Intern   "
-                onClick={this.ContractorHandleHide}
+                onClick={this.empTypeHandle}
               />
               <input
                 type="button"
                 value="Contractor"
-                onClick={this.ContractorHandleShow}
+                onClick={this.empTypeHandle}
               />
-              <input type="button" value="Other " />
+              <input
+                type="button"
+                value="Other "
+                onClick={this.empTypeHandle}
+              />
             </label>
             {Contractor}
             <br />
