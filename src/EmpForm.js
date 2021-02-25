@@ -14,6 +14,7 @@ export default class EmpFrom extends React.Component {
       transferDept: "",
       contractorDept: "",
       otherDept: "",
+      otherLastDate: null,
 
       empId: null,
       dept: "",
@@ -55,14 +56,6 @@ export default class EmpFrom extends React.Component {
     this.setState({ empType: event.target.value });
   };
 
-  historyHandle = (event) => {
-    if (event.target.value === "Yes") {
-      this.setState({ isHistory: true });
-    } else {
-      this.setState({ isHistory: false });
-    }
-  };
-
   valueHandle = () => {
     let nam = event.target.name;
     let val = event.target.value;
@@ -70,6 +63,18 @@ export default class EmpFrom extends React.Component {
   };
   submitHandle = () => {
     console.log(this.state);
+  };
+  historyHandle = (event) => {
+    var checkBox = document.getElementById("myCheck");
+
+    if (event.target.value == "Yes") {
+      if (checkBox.checked == true) {
+        this.setState({ isHistory: true });
+      }
+      if (checkBox.checked == false) {
+        this.setState({ isHistory: false });
+      }
+    }
   };
 
   render() {
@@ -124,6 +129,14 @@ export default class EmpFrom extends React.Component {
           <label>
             Comments
             <input type="text" name="Comments" />
+          </label>
+          <label>
+            Last work date from resume :
+            <input
+              type="date"
+              name="lastWorkDate"
+              onChange={this.valueHandle}
+            />
           </label>
         </div>
       );
