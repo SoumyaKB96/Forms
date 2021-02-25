@@ -7,7 +7,7 @@ export default class EmpFrom extends React.Component {
       requestId: null,
       requestType: "",
       istransfer: false,
-      selectedImage: "./download.png",
+      selectedImage: null,
 
       empType: "",
       isContractor: false,
