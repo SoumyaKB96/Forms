@@ -61,20 +61,3 @@ input[type="button"]:checked {
   text-decoration: bold;
 }
 
-.Names,
-.Dates {
-  display: flex;
-  justify-content: space-between;
-}
-.DeptInfo {
-  display: flex;
-  justify-content: space-between;
-  padding-right: 523px;
-}
-.system,
-.Phone {
-  display: flex;
-  grid-column-gap: 10px;
-
-  align-items: left;
-}

@@ -194,7 +194,7 @@ export default class EmpFrom extends React.Component {
             
           <div class="form-group row">
                 <div class="col-xs">
-                <label for="pwd">Request ID:</label>
+                <label >Request ID:</label>
                 <input type="text" class="form-control " id="pwd" name="lname" onChange={(e) => this.setState({ requestId: e.target.value })} />
               </div>
               </div>
@@ -257,26 +257,29 @@ export default class EmpFrom extends React.Component {
             </label>
             {empTypeOption}
             <br />
-            <br />
+            
 
             
-            <div class="form-group row">
+            <div class="form-group-inline row">
             
-            <div class="col-mb">
-              <label > First Name :</label>
-              <input type="text" class="form-control" id="name" name="fname" />
+            <div class="col-xs">
+                <label >First name:
+                <input type="text" class="form-control " id="pwd" name="lname" onChange={(e) => this.setState({ requestId: e.target.value })} /> 
+                </label>
               </div>
               
             
-              <div class="col-mb">
+              <div class="col-xs">
                 <label for="pwd">Last Name:</label>
                 <input type="text" class="form-control" id="pwd" name="lname" />
               </div>
 
-              <div class="col-mb">
+              <div class="col-xs">
                 <label for="pwd">  Employee Id:</label>
                 <input type="text" class="form-control" id="pwd" name="empId" />
               </div>
+
+              
               
               </div>
              
