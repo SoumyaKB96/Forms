@@ -25,16 +25,16 @@ export default class EmpFrom extends React.Component {
 
       isHistory: false,
       purchaseRequest: "",
-      system: ""
+      system: "",
     };
   }
 
   imageSelectionHandle = (event) => {
     this.setState({
-      selectedImage: URL.createObjectURL(event.target.files[0])
+      selectedImage: URL.createObjectURL(event.target.files[0]),
     });
   };
-  imageUploadHandle = () => { };
+  imageUploadHandle = () => {};
 
   requestTypeHandle = (event) => {
     if (event.target.value === "Transfer  ") {
@@ -191,243 +191,248 @@ export default class EmpFrom extends React.Component {
             </label>
           </div>
           <div className="Empdetails"></div>
-            
-          <div class="form-group row">
-                <div class="col-xs">
-                <label >Request ID:</label>
-                <input type="text" class="form-control " id="pwd" name="lname" onChange={(e) => this.setState({ requestId: e.target.value })} />
-              </div>
-              </div>
-            
 
-            <div className="Request">
-              <label>
-                Request Type :&nbsp;
-                <input
-                  type="button"
-                  value="Transfer  "
-                  onClick={this.requestTypeHandle}
-                />
-                <input
-                  type="button"
-                  value="New Hire"
-                  onClick={this.requestTypeHandle}
-                />
-                <input
-                  type="button"
-                  value="  Re-Hire  "
-                  onClick={this.requestTypeHandle}
-                />
-                <input
-                  type="button"
-                  value="Status Change"
-                  onClick={this.requestTypeHandle}
-                />
-                <input
-                  type="button"
-                  value="Date Extension"
-                  onClick={this.requestTypeHandle}
-                />
-              </label>
+          <div class="form-group row">
+            <div class="col-xs">
+              <label>Request ID:</label>
+              <input
+                type="text"
+                class="form-control "
+                id="pwd"
+                name="lname"
+                onChange={(e) => this.setState({ requestId: e.target.value })}
+              />
             </div>
-            {transfer}
-            <br />
+          </div>
+
+          <div className="Request">
             <label>
-              Employee Type:
+              Request Type :&nbsp;
               <input
                 type="button"
-                value="Full Time"
-                onClick={(e) => this.setState({ empType: e.target.value })}
+                value="Transfer  "
+                onClick={this.requestTypeHandle}
               />
               <input
                 type="button"
-                value="   Intern   "
-                onClick={(e) => this.setState({ empType: e.target.value })}
+                value="New Hire"
+                onClick={this.requestTypeHandle}
               />
               <input
                 type="button"
-                value="Contractor"
-                onClick={(e) => this.setState({ empType: e.target.value })}
+                value="  Re-Hire  "
+                onClick={this.requestTypeHandle}
               />
               <input
                 type="button"
-                value="Other "
-                onClick={(e) => this.setState({ empType: e.target.value })}
+                value="Status Change"
+                onClick={this.requestTypeHandle}
+              />
+              <input
+                type="button"
+                value="Date Extension"
+                onClick={this.requestTypeHandle}
               />
             </label>
-            {empTypeOption}
-            <br />
-            
-
-            
-            <div class="form-group-inline row">
-            
-            <div class="col-xs">
-                <label >First name:
-                <input type="text" class="form-control " id="pwd" name="lname" onChange={(e) => this.setState({ requestId: e.target.value })} /> 
-                </label>
-              </div>
-              
-            
-              <div class="col-xs">
-                <label for="pwd">Last Name:</label>
-                <input type="text" class="form-control" id="pwd" name="lname" />
-              </div>
-
-              <div class="col-xs">
-                <label for="pwd">  Employee Id:</label>
-                <input type="text" class="form-control" id="pwd" name="empId" />
-              </div>
-
-              
-              
-              </div>
-             
-
-              
-
-                <div className="Names">
-                  <label>
-                    First Name :&nbsp;&nbsp;&nbsp;&nbsp;
-                <input
-                      type="text"
-                      name="fname"
-                      size="40"
-                      onChange={this.valueHandle}
-                    />
-                  </label>
-
-                  <label>
-                    Last Name :
-                <input
-                      type="text"
-                      name="lname"
-                      size="40"
-                      onChange={this.valueHandle}
-                    />
-                  </label>
-
-                  <label>
-                    Employee ID :
-                <input
-                      type="text"
-                      name="empId"
-                      size="40"
-                      onChange={this.valueHandle}
-                    />
-                  </label>
-                  <br />
-                </div>
-
-                <div className="Dates">
-                  <label>
-                    Department:&nbsp;&nbsp;&nbsp;&nbsp;
-                <select width="20px">
-                      <option selected value="None">
-                        Select...
-                  </option>
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="2">3</option>
-                    </select>
-                  </label>
-
-                  <label>
-                    From :
-                <input
-                      type="date"
-                      name="startDate"
-                      onChange={this.valueHandle}
-                    />
-                  </label>
-                  <label>
-                    Until :
-                <input type="date" name="endDate" onChange={this.valueHandle} />
-                  </label>
-                  <br />
-                </div>
-                <label>
-                  Comments:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <input type="text" name="Comment1" onChange={this.valueHandle} />
-                </label>
-            
-              <br />
-
-              <label>
-                Did this person work for Siemens Before ? : *<br />
-                <input
-                  type="checkbox"
-                  onClick={(e) => this.setState({ isHistory: true })}
-                />
-                <label>Yes</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </div>
+          {transfer}
+          <br />
+          <label>
+            Employee Type:
             <input
-                  type="checkbox"
-                  onClick={(e) => this.setState({ isHistory: false })}
-                />{" "}
-                <label>No</label>
-                {history}
-              </label>
+              type="button"
+              value="Full Time"
+              onClick={(e) => this.setState({ empType: e.target.value })}
+            />
+            <input
+              type="button"
+              value="   Intern   "
+              onClick={(e) => this.setState({ empType: e.target.value })}
+            />
+            <input
+              type="button"
+              value="Contractor"
+              onClick={(e) => this.setState({ empType: e.target.value })}
+            />
+            <input
+              type="button"
+              value="Other "
+              onClick={(e) => this.setState({ empType: e.target.value })}
+            />
+          </label>
+          {empTypeOption}
+          <br />
 
-              <h4 className="headings"> Workspace Requirements</h4>
-              <div className="Workspace">
-                <p>Please select workspace requirements :</p>
-                <p>System </p>
-                <div className="system">
-                  <input
-                    type="checkbox"
-                    onClick={(e) => this.setState({ system: "Desktop" })}
-                  />
+          <div class="form-group row">
+            <div class="col-xs-3">
+              <label for="ex1">First name</label>
+              <input
+                class="form-control"
+                id="fname"
+                type="text"
+                name="fname"
+                onChange={this.valueHandle}
+              />
+            </div>
+            <div class="col-xs-3">
+              <label for="ex2">Last Name</label>
+              <input
+                class="form-control"
+                id="lname"
+                type="text"
+                name="lname"
+                onChange={this.valueHandle}
+              />
+            </div>
+            <div class="col-xs-3">
+              <label>Employee Id</label>
+              <input
+                class="form-control"
+                type="text"
+                name="empId"
+                onChange={this.valueHandle}
+              />
+            </div>
+          </div>
+
+          <div className="Dates">
+            <div class="form-group col-sm-3">
+              <label for="sel1">Department </label>
+              <select class="form-control" id="sel1">
+              <option selected value="None">
+                  Select...
+                </option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+              </select>
+            </div>
+           
+            <label>
+              From :
+              <input type="date" name="startDate" onChange={this.valueHandle} />
+            </label>
+            <label>
+              Until :
+              <input type="date" name="endDate" onChange={this.valueHandle} />
+            </label>
+            <br />
+          </div>
+          <div class="form-group col-xs-3">
+  <label for="comment">Comment:</label>
+  <textarea class="form-control" rows="4" id="comment"></textarea>
+</div>
+
+          <br />
+
+          <label>
+            Did this person work for Siemens Before ? : *<br />
+            <label class="radio-inline">
+              <input
+                type="radio"
+                name="optradio"
+                onClick={(e) => this.setState({ isHistory: true })}
+              />
+              Yes
+            </label>
+            <label class="radio-inline">
+              <input
+                type="radio"
+                name="optradio"
+                onClick={(e) => this.setState({ isHistory: false })}
+              />
+              No
+            </label>
+            {history}
+          </label>
+
+          <h4 className="headings"> Workspace Requirements</h4>
+          <div className="Workspace">
+            <p>Please select workspace requirements :</p>
+            <p>System </p>
+
+            <label class="checkbox-inline">
+              <input type="checkbox" value="" />
+              Desktop
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" value="" />
+              Server
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" value="" />
+              Laptop
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" value="" />
+              Other
+            </label>
+
+            <div className="system">
+              <input
+                type="checkbox"
+                onClick={(e) => this.setState({ system: "Desktop" })}
+              />
               Desktop
               <input
-                    type="checkbox"
-                    name="Laptop"
-                    onClick={(e) => this.setState({ system: "Laptop" })}
-                  />
+                type="checkbox"
+                name="Laptop"
+                onClick={(e) => this.setState({ system: "Laptop" })}
+              />
               Laptop
               <input
-                    type="checkbox"
-                    onClick={(e) => this.setState({ system: "Server" })}
-                  />
+                type="checkbox"
+                onClick={(e) => this.setState({ system: "Server" })}
+              />
               Server
               <input
-                    type="checkbox"
-                    onClick={(e) => this.setState({ system: "Other" })}
-                  />
+                type="checkbox"
+                onClick={(e) => this.setState({ system: "Other" })}
+              />
               Other
               {systemOptions}
-                </div>
-                <br />
-                <br />
-                <label>Phone </label>
-                <br />
-                <div className="Phone">
-                  <input type="checkbox" />
+            </div>
+            <br />
+            <br />
+            <label>Phone </label>
+
+            <label class="checkbox-inline">
+              <input type="checkbox" value="" />
               Desk
-              <input type="checkbox" />
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" value="" />
               Mobile
-              <br />
-                  <br />
-                </div>
-              </div>
-              <label>Others </label>
-              <input type="text" name="PhoneOthers" />
-
-              <label class="checkbox-inline"><input type="checkbox" value="" />Option 1</label>
-<label class="checkbox-inline"><input type="checkbox" value="" />Option 2</label>
-<label class="checkbox-inline"><input type="checkbox" value="" />Option 3</label>
-
-
-              <h4 className="headings"> Building Access</h4>
-              <div className="Building">
-                <label>Work Location</label>
-                <br />
-
-                <label>Seating Location</label>
-              </div>
-
-              <input type="submit" value="Submit" />
-        </form>
+            </label>
           </div>
+          <label>Others </label>
+          <input type="text" name="PhoneOthers" />
+
+          <label class="checkbox-inline">
+            <input type="checkbox" value="" />
+            Option 1
+          </label>
+          <label class="checkbox-inline">
+            <input type="checkbox" value="" />
+            Option 2
+          </label>
+          <label class="checkbox-inline">
+            <input type="checkbox" value="" />
+            Option 3
+          </label>
+
+          <h4 className="headings"> Building Access</h4>
+          <div className="Building">
+            <label>Work Location</label>
+            <br />
+
+            <label>Seating Location</label>
+          </div>
+
+          <input type="submit" value="Submit" />
+        </form>
+      </div>
     );
   }
 }

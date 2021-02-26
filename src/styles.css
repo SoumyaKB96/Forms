@@ -21,12 +21,7 @@ select {
   float: right;
 }
 
-.b1,
-.b2,
-.b3,
-.b4,
-.b5,
-button,
+
 input[type="button"] {
   border: none;
   color: black;
@@ -42,22 +37,10 @@ input[type="button"] {
   transition-duration: 0.4s;
 }
 
-input[type="button"]:active {
-  color: white; /* Text color */
-  background-color: lightblue; /* Remove background color */
-  z-index: 1;
-}
 
-button:click {
-  color: lightblue;
-  background-color: lightblue;
-}
-button:active,
-input[type="button"]:checked {
-  background-color: darkblue;
-  color: white;
-}
+
 .headings {
   text-decoration: bold;
 }
+
 
