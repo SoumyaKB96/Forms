@@ -34,7 +34,7 @@ export default class EmpFrom extends React.Component {
       selectedImage: URL.createObjectURL(event.target.files[0])
     });
   };
-  imageUploadHandle = () => {};
+  imageUploadHandle = () => { };
 
   requestTypeHandle = (event) => {
     if (event.target.value === "Transfer  ") {
@@ -190,17 +190,15 @@ export default class EmpFrom extends React.Component {
               <br />
             </label>
           </div>
-          <div className="Empdetails">
-            <label>
-              Request ID: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <input
-                type="text"
-                name="requestId"
-                onChange={(e) => this.setState({ requestId: e.target.value })}
-              />
-            </label>
-            <br />
-            <br />
+          <div className="Empdetails"></div>
+            
+          <div class="form-group row">
+                <div class="col-xs">
+                <label for="pwd">Request ID:</label>
+                <input type="text" class="form-control " id="pwd" name="lname" onChange={(e) => this.setState({ requestId: e.target.value })} />
+              </div>
+              </div>
+            
 
             <div className="Request">
               <label>
@@ -261,143 +259,172 @@ export default class EmpFrom extends React.Component {
             <br />
             <br />
 
-            <div className="Names">
-              <label>
-                First Name :&nbsp;&nbsp;&nbsp;&nbsp;
-                <input
-                  type="text"
-                  name="fname"
-                  size="40"
-                  onChange={this.valueHandle}
-                />
-              </label>
+            
+            <div class="form-group row">
+            
+            <div class="col-mb">
+              <label > First Name :</label>
+              <input type="text" class="form-control" id="name" name="fname" />
+              </div>
+              
+            
+              <div class="col-mb">
+                <label for="pwd">Last Name:</label>
+                <input type="text" class="form-control" id="pwd" name="lname" />
+              </div>
 
-              <label>
-                Last Name :
-                <input
-                  type="text"
-                  name="lname"
-                  size="40"
-                  onChange={this.valueHandle}
-                />
-              </label>
+              <div class="col-mb">
+                <label for="pwd">  Employee Id:</label>
+                <input type="text" class="form-control" id="pwd" name="empId" />
+              </div>
+              
+              </div>
+             
 
-              <label>
-                Employee ID :
-                <input
-                  type="text"
-                  name="empId"
-                  size="40"
-                  onChange={this.valueHandle}
-                />
-              </label>
-              <br />
-            </div>
+              
 
-            <div className="Dates">
-              <label>
-                Department:&nbsp;&nbsp;&nbsp;&nbsp;
+                <div className="Names">
+                  <label>
+                    First Name :&nbsp;&nbsp;&nbsp;&nbsp;
+                <input
+                      type="text"
+                      name="fname"
+                      size="40"
+                      onChange={this.valueHandle}
+                    />
+                  </label>
+
+                  <label>
+                    Last Name :
+                <input
+                      type="text"
+                      name="lname"
+                      size="40"
+                      onChange={this.valueHandle}
+                    />
+                  </label>
+
+                  <label>
+                    Employee ID :
+                <input
+                      type="text"
+                      name="empId"
+                      size="40"
+                      onChange={this.valueHandle}
+                    />
+                  </label>
+                  <br />
+                </div>
+
+                <div className="Dates">
+                  <label>
+                    Department:&nbsp;&nbsp;&nbsp;&nbsp;
                 <select width="20px">
-                  <option selected value="None">
-                    Select...
+                      <option selected value="None">
+                        Select...
                   </option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="2">3</option>
-                </select>
-              </label>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="2">3</option>
+                    </select>
+                  </label>
 
-              <label>
-                From :
+                  <label>
+                    From :
                 <input
-                  type="date"
-                  name="startDate"
-                  onChange={this.valueHandle}
-                />
-              </label>
-              <label>
-                Until :
+                      type="date"
+                      name="startDate"
+                      onChange={this.valueHandle}
+                    />
+                  </label>
+                  <label>
+                    Until :
                 <input type="date" name="endDate" onChange={this.valueHandle} />
-              </label>
-              <br />
-            </div>
-            <label>
-              Comments:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  </label>
+                  <br />
+                </div>
+                <label>
+                  Comments:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <input type="text" name="Comment1" onChange={this.valueHandle} />
-            </label>
-          </div>
-          <br />
+                </label>
+            
+              <br />
 
-          <label>
-            Did this person work for Siemens Before ? : *<br />
+              <label>
+                Did this person work for Siemens Before ? : *<br />
+                <input
+                  type="checkbox"
+                  onClick={(e) => this.setState({ isHistory: true })}
+                />
+                <label>Yes</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <input
-              type="checkbox"
-              onClick={(e) => this.setState({ isHistory: true })}
-            />
-            <label>Yes</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input
-              type="checkbox"
-              onClick={(e) => this.setState({ isHistory: false })}
-            />{" "}
-            <label>No</label>
-            {history}
-          </label>
+                  type="checkbox"
+                  onClick={(e) => this.setState({ isHistory: false })}
+                />{" "}
+                <label>No</label>
+                {history}
+              </label>
 
-          <h4 className="headings"> Workspace Requirements</h4>
-          <div className="Workspace">
-            <p>Please select workspace requirements :</p>
-            <p>System </p>
-            <div className="system">
-              <input
-                type="checkbox"
-                onClick={(e) => this.setState({ system: "Desktop" })}
-              />
+              <h4 className="headings"> Workspace Requirements</h4>
+              <div className="Workspace">
+                <p>Please select workspace requirements :</p>
+                <p>System </p>
+                <div className="system">
+                  <input
+                    type="checkbox"
+                    onClick={(e) => this.setState({ system: "Desktop" })}
+                  />
               Desktop
               <input
-                type="checkbox"
-                name="Laptop"
-                onClick={(e) => this.setState({ system: "Laptop" })}
-              />
+                    type="checkbox"
+                    name="Laptop"
+                    onClick={(e) => this.setState({ system: "Laptop" })}
+                  />
               Laptop
               <input
-                type="checkbox"
-                onClick={(e) => this.setState({ system: "Server" })}
-              />
+                    type="checkbox"
+                    onClick={(e) => this.setState({ system: "Server" })}
+                  />
               Server
               <input
-                type="checkbox"
-                onClick={(e) => this.setState({ system: "Other" })}
-              />
+                    type="checkbox"
+                    onClick={(e) => this.setState({ system: "Other" })}
+                  />
               Other
               {systemOptions}
-            </div>
-            <br />
-            <br />
-            <label>Phone </label>
-            <br />
-            <div className="Phone">
-              <input type="checkbox" />
+                </div>
+                <br />
+                <br />
+                <label>Phone </label>
+                <br />
+                <div className="Phone">
+                  <input type="checkbox" />
               Desk
               <input type="checkbox" />
               Mobile
               <br />
-              <br />
-            </div>
-          </div>
-          <label>Others </label>
-          <input type="text" name="PhoneOthers" />
+                  <br />
+                </div>
+              </div>
+              <label>Others </label>
+              <input type="text" name="PhoneOthers" />
 
-          <h4 className="headings"> Building Access</h4>
-          <div className="Building">
-            <label>Work Location</label>
-            <br />
+              <label class="checkbox-inline"><input type="checkbox" value="" />Option 1</label>
+<label class="checkbox-inline"><input type="checkbox" value="" />Option 2</label>
+<label class="checkbox-inline"><input type="checkbox" value="" />Option 3</label>
 
-            <label>Seating Location</label>
-          </div>
 
-          <input type="submit" value="Submit" />
+              <h4 className="headings"> Building Access</h4>
+              <div className="Building">
+                <label>Work Location</label>
+                <br />
+
+                <label>Seating Location</label>
+              </div>
+
+              <input type="submit" value="Submit" />
         </form>
-      </div>
+          </div>
     );
   }
 }
