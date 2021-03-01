@@ -26,6 +26,7 @@ export default class EmpFrom extends React.Component {
       isHistory: false,
       purchaseRequest: "",
       system: "",
+      otherSystem:false,
     };
   }
 
@@ -81,11 +82,17 @@ export default class EmpFrom extends React.Component {
     let transfer;
     if (this.state.istransfer) {
       transfer = (
-        <div>
-          <label>
-            Employee Transferring from CT US :
-            <input type="text" name="otherCompany" />
-          </label>
+        <div class="form-group row">
+          <div class="col-xs-3">
+            <label>Transferring from which CT US:</label>
+            <input
+              type="text"
+              class="form-control "
+              id="pwd"
+              name="lname"
+              onChange={(e) => this.setState({ requestId: e.target.value })}
+            />
+          </div>
         </div>
       );
     }
@@ -93,21 +100,33 @@ export default class EmpFrom extends React.Component {
     let empTypeOption;
     if (this.state.empType === "Contractor") {
       empTypeOption = (
-        <div>
-          <label>
-            If Contractor , what Company They Worked for :
-            <input type="text" name="otherCompany" />
-          </label>
+        <div class="form-group row">
+          <div class="col-xs-3">
+            <label>If Contractor Specify which Company they worked for:</label>
+            <input
+              type="text"
+              class="form-control "
+              id="pwd"
+              name="lname"
+              onChange={(e) => this.setState({ requestId: e.target.value })}
+            />
+          </div>
         </div>
       );
     }
     if (this.state.empType === "Other ") {
       empTypeOption = (
-        <div>
-          <label>
-            If Other, specify :
-            <input type="text" name="otherCompany" />
-          </label>
+        <div class="form-group row">
+          <div class="col-xs-3">
+            <label>If Other , Specify:</label>
+            <input
+              type="text"
+              class="form-control "
+              id="pwd"
+              name="lname"
+              onChange={(e) => this.setState({ requestId: e.target.value })}
+            />
+          </div>
         </div>
       );
     }
@@ -116,28 +135,37 @@ export default class EmpFrom extends React.Component {
     if (this.state.isHistory) {
       history = (
         <div>
-          <label>
-            GID/Email:
-            <input type="text" name="GID" />
-          </label>
-
-          <label>
-            Last Current Unit
-            <input type="text" name="Comments" />
-          </label>
-          <br />
-          <label>
-            Comments
-            <input type="text" name="Comments" />
-          </label>
-          <label>
-            Last work date from resume :
-            <input
-              type="date"
-              name="lastWorkDate"
-              onChange={this.valueHandle}
-            />
-          </label>
+          <div class="form-group row">
+            <div class="col-xs-3">
+              <label for="ex1">GID/Email:</label>
+              <input
+                class="form-control"
+                id="fname"
+                type="text"
+                name="fname"
+                onChange={this.valueHandle}
+              />
+            </div>
+            <div class="col-xs-3">
+              <label for="ex2">Last/Current Unit:</label>
+              <input
+                class="form-control"
+                id="lname"
+                type="text"
+                name="lname"
+                onChange={this.valueHandle}
+              />
+            </div>
+            <div class="col-xs-3">
+              <label>Last Working Day:</label>
+              <input
+                class="form-control"
+                type="date"
+                name="empId"
+                onChange={this.valueHandle}
+              />
+            </div>
+          </div>
         </div>
       );
     }
@@ -181,6 +209,7 @@ export default class EmpFrom extends React.Component {
                 width="150px"
                 height="150px"
               />
+              
               <br />
               <input
                 type="file"
@@ -189,6 +218,7 @@ export default class EmpFrom extends React.Component {
               />
               <br />
             </label>
+
           </div>
           <div className="Empdetails"></div>
 
@@ -207,7 +237,7 @@ export default class EmpFrom extends React.Component {
 
           <div className="Request">
             <label>
-              Request Type :&nbsp;
+              Request Type :<br />
               <input
                 type="button"
                 value="Transfer  "
@@ -238,7 +268,7 @@ export default class EmpFrom extends React.Component {
           {transfer}
           <br />
           <label>
-            Employee Type:
+            Employee Type: <br />
             <input
               type="button"
               value="Full Time"
@@ -264,7 +294,7 @@ export default class EmpFrom extends React.Component {
           <br />
 
           <div class="form-group row">
-            <div class="col-xs-3">
+            <div class="col-xs-2">
               <label for="ex1">First name</label>
               <input
                 class="form-control"
@@ -274,7 +304,7 @@ export default class EmpFrom extends React.Component {
                 onChange={this.valueHandle}
               />
             </div>
-            <div class="col-xs-3">
+            <div class="col-xs-2">
               <label for="ex2">Last Name</label>
               <input
                 class="form-control"
@@ -284,7 +314,7 @@ export default class EmpFrom extends React.Component {
                 onChange={this.valueHandle}
               />
             </div>
-            <div class="col-xs-3">
+            <div class="col-xs-2">
               <label>Employee Id</label>
               <input
                 class="form-control"
@@ -296,38 +326,44 @@ export default class EmpFrom extends React.Component {
           </div>
 
           <div className="Dates">
-            <div class="form-group col-sm-3">
-              <label for="sel1">Department </label>
-              <select class="form-control" id="sel1">
-              <option selected value="None">
-                  Select...
-                </option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-              </select>
+            <div class="form-group row">
+              <div class="col-xs-2">
+                <label for="ex2">From</label>
+                <input
+                  class="form-control"
+                  id="lname"
+                  type="date"
+                  name="lname"
+                  onChange={this.valueHandle}
+                />
+              </div>
+              <div class={this.state.empType==="Full Time"?"hide":"col-xs-2"}>
+                <label>Until</label>
+                <input
+                  class="form-control"
+                  type="date"
+                  name="empId"
+                  onChange={this.valueHandle}
+                />
+              </div>
+              <div class="col-xs-2">
+                <label for="ex1">Department</label>
+                <select class="form-control" id="sel1">
+                  <option selected value="None">
+                    Select...
+                  </option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+                Manager :
+              </div>
             </div>
-           
-            <label>
-              From :
-              <input type="date" name="startDate" onChange={this.valueHandle} />
-            </label>
-            <label>
-              Until :
-              <input type="date" name="endDate" onChange={this.valueHandle} />
-            </label>
-            <br />
           </div>
-          <div class="form-group col-xs-3">
-  <label for="comment">Comment:</label>
-  <textarea class="form-control" rows="4" id="comment"></textarea>
-</div>
-
-          <br />
 
           <label>
-            Did this person work for Siemens Before ? : *<br />
+            Did this person work for Siemens Before ? : *
             <label class="radio-inline">
               <input
                 type="radio"
@@ -349,85 +385,72 @@ export default class EmpFrom extends React.Component {
 
           <h4 className="headings"> Workspace Requirements</h4>
           <div className="Workspace">
-            <p>Please select workspace requirements :</p>
-            <p>System </p>
+           
+            <label>System </label>
 
             <label class="checkbox-inline">
-              <input type="checkbox" value="" />
+              <input type="checkbox" value="Desktop" />
               Desktop
             </label>
             <label class="checkbox-inline">
-              <input type="checkbox" value="" />
+              <input type="checkbox" value="Server" />
               Server
             </label>
             <label class="checkbox-inline">
-              <input type="checkbox" value="" />
+              <input type="checkbox" value="Laptop" />
               Laptop
             </label>
             <label class="checkbox-inline">
-              <input type="checkbox" value="" />
+              <input type="checkbox" value="Other"  onclick={e=>this.setState({otherSystem:true})}/>
               Other
             </label>
 
-            <div className="system">
-              <input
-                type="checkbox"
-                onClick={(e) => this.setState({ system: "Desktop" })}
-              />
-              Desktop
-              <input
-                type="checkbox"
-                name="Laptop"
-                onClick={(e) => this.setState({ system: "Laptop" })}
-              />
-              Laptop
-              <input
-                type="checkbox"
-                onClick={(e) => this.setState({ system: "Server" })}
-              />
-              Server
-              <input
-                type="checkbox"
-                onClick={(e) => this.setState({ system: "Other" })}
-              />
-              Other
-              {systemOptions}
+            <div class={this.state.otherSystem== true ? "" :"hide"}>
+            <label class="checkbox-inline">
+              <input type="textarea" value=""  />
+              
+            </label>
             </div>
-            <br />
+
             <br />
             <label>Phone </label>
 
             <label class="checkbox-inline">
-              <input type="checkbox" value="" />
+              <input type="checkbox" value="Desk" />
               Desk
             </label>
             <label class="checkbox-inline">
-              <input type="checkbox" value="" />
+              <input type="checkbox" value="Mobile" />
               Mobile
             </label>
           </div>
-          <label>Others </label>
-          <input type="text" name="PhoneOthers" />
-
-          <label class="checkbox-inline">
-            <input type="checkbox" value="" />
-            Option 1
-          </label>
-          <label class="checkbox-inline">
-            <input type="checkbox" value="" />
-            Option 2
-          </label>
-          <label class="checkbox-inline">
-            <input type="checkbox" value="" />
-            Option 3
-          </label>
 
           <h4 className="headings"> Building Access</h4>
           <div className="Building">
-            <label>Work Location</label>
-            <br />
+          <div class="form-group row">
+            <div class="col-xs-2">
+              <label for="ex1">Building Location</label>
+              <input
+                class="form-control"
+                id="fname"
+                type="text"
+                name="fname"
+                onChange={this.valueHandle}
+              />
+            </div>
+            <div class="col-xs-2">
+              <label for="ex2">Seating Location</label>
+              <input
+                class="form-control"
+                id="lname"
+                type="text"
+                name="lname"
+                onChange={this.valueHandle}
+              />
+            </div>
+           
+          </div>
 
-            <label>Seating Location</label>
           </div>
 
           <input type="submit" value="Submit" />

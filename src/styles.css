@@ -7,8 +7,8 @@
 
 input[type="text"],
 input[type="button"],
-input[type="date"],
-select {
+input[type="date"]
+ {
   padding: 12px 10px;
 
   margin: 10px 0;
