@@ -38,7 +38,7 @@ export default class EmpFrom extends React.Component {
   imageUploadHandle = () => {};
 
   requestTypeHandle = (event) => {
-    if (event.target.value === "Transfer  ") {
+    if (event.target.value === "Transfer") {
       this.setState({ istransfer: true });
     } else {
       this.setState({ istransfer: false });
@@ -114,7 +114,7 @@ export default class EmpFrom extends React.Component {
         </div>
       );
     }
-    if (this.state.empType === "Other ") {
+    if (this.state.empType === "Others") {
       empTypeOption = (
         <div class="form-group row">
           <div class="col-xs-3">
@@ -234,62 +234,137 @@ export default class EmpFrom extends React.Component {
               />
             </div>
           </div>
-
+          
           <div className="Request">
-            <label>
-              Request Type :<br />
+          <label>Request</label>
+          <div class="form-group row">
+          
+            <div class="col-xs-1">
+             
               <input
+                class="form-control"
+                id="fname"
                 type="button"
-                value="Transfer  "
+                name="fname"
+                value="Transfer"
                 onClick={this.requestTypeHandle}
-              />
+              /> 
+            </div>
+            <div class="col-xs-1">
+              
               <input
+                class="form-control"
+                id="lname"
                 type="button"
+                name="lname"
                 value="New Hire"
                 onClick={this.requestTypeHandle}
               />
+            </div>
+            <div class="col-xs-1">
+              
               <input
+                class="form-control"
+                id="lname"
                 type="button"
-                value="  Re-Hire  "
+                name="lname"
+                value="Re-hire"
                 onClick={this.requestTypeHandle}
               />
+            </div>
+
+            <div class="col-xs-1">
+              
               <input
+                class="form-control"
+                id="lname"
                 type="button"
+                name="lname"
                 value="Status Change"
                 onClick={this.requestTypeHandle}
               />
+            </div>
+
+            <div class="col-sm-1">
+              
               <input
+                class="form-control"
+                id="lname"
                 type="button"
+                name="lname"
                 value="Date Extension"
                 onClick={this.requestTypeHandle}
               />
-            </label>
+            </div>
+            </div>
+
+           
           </div>
           {transfer}
           <br />
-          <label>
-            Employee Type: <br />
-            <input
-              type="button"
-              value="Full Time"
-              onClick={(e) => this.setState({ empType: e.target.value })}
-            />
-            <input
-              type="button"
-              value="   Intern   "
-              onClick={(e) => this.setState({ empType: e.target.value })}
-            />
-            <input
-              type="button"
-              value="Contractor"
-              onClick={(e) => this.setState({ empType: e.target.value })}
-            />
-            <input
-              type="button"
-              value="Other "
-              onClick={(e) => this.setState({ empType: e.target.value })}
-            />
-          </label>
+
+          <label>Employee Type</label>
+          <div class="form-group row">
+          
+            <div class="col-xs-1">
+             
+              <input
+                class="form-control"
+                id="fname"
+                type="button"
+                name="fname"
+                value="Full Time"
+                onClick={(e) => this.setState({ empType: e.target.value })}
+              /> 
+            </div>
+            <div class="col-xs-1">
+              
+              <input
+                class="form-control"
+                id="lname"
+                type="button"
+                name="lname"
+                value="Intern"
+                onClick={(e) => this.setState({ empType: e.target.value })}
+              />
+            </div>
+            <div class="col-xs-1">
+              
+              <input
+                class="form-control"
+                id="lname"
+                type="button"
+                name="lname"
+                value="Contractor"
+                onClick={(e) => this.setState({ empType: e.target.value })}
+              />
+            </div>
+
+            <div class="col-xs-1">
+              
+              <input
+                class="form-control"
+                id="lname"
+                type="button"
+                name="lname"
+                value="Visitor"
+                onClick={(e) => this.setState({ empType: e.target.value })}
+              />
+            </div>
+
+            <div class="col-sm-1">
+              
+              <input
+                class="form-control"
+                id="lname"
+                type="button"
+                name="lname"
+                value="Others"
+                onClick={this.requestTypeHandle}
+              />
+            </div>
+            </div>
+         
           {empTypeOption}
           <br />
 
