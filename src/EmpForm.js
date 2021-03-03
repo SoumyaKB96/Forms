@@ -50,7 +50,7 @@ export default class EmpFrom extends React.Component {
     if (event.target.value === "Contractor") {
       this.setState({ empType: "Contractor" });
     } else if (event.target.value === "Other") {
-      this.setState({ empType: "Contracto" });
+      this.setState({ empType: "Contractor" });
     } else {
       this.setState({ isContractor: false });
     }
@@ -79,34 +79,7 @@ export default class EmpFrom extends React.Component {
   };
 
 
-  getValues(){
-    const data={
-      requestId: null,
-      requestType: "",
-      istransfer: false,
-      selectedImage: null,
 
-      empType: "",
-      isContractor: false,
-      transferDept: "",
-      contractorDept: "",
-      otherDept: "",
-      otherLastDate: null,
-
-      empId: null,
-      dept: "",
-      fName: "",
-      lName: "",
-      startDate: null,
-      endDate: null,
-
-
-    }
-  }
-  Validate=()=>{
-
-
-  }
 
 
   render() {
@@ -241,7 +214,7 @@ export default class EmpFrom extends React.Component {
             </label>
 
           </div>
-          <div className="Empdetails"></div>
+          <div ></div>
 
           <div class="form-group row">
             <div class="col-xs">
@@ -384,8 +357,9 @@ export default class EmpFrom extends React.Component {
           <br />
 
           <div class="form-group row">
+          <label class="col-form-label">First name</label>
             <div class="col-xs-2">
-              <label for="ex1">First name</label>
+              
               <input
                 class="form-control"
                 id="fname"
@@ -457,7 +431,7 @@ export default class EmpFrom extends React.Component {
             <label class="radio-inline">
               <input
                 type="radio"
-                name="optradio"
+                
                 onClick={(e) => this.setState({ isHistory: true })}
               />
               Yes
@@ -465,7 +439,7 @@ export default class EmpFrom extends React.Component {
             <label class="radio-inline">
               <input
                 type="radio"
-                name="optradio"
+                
                 onClick={(e) => this.setState({ isHistory: false })}
               />
               No
@@ -512,7 +486,7 @@ export default class EmpFrom extends React.Component {
               Mobile
             </label>
           </div>
-          <div class="col-xs-4"><input type="textarea"></input></div>
+          <div class="col-xs-4"><input type="textarea">Other Assets</input></div>
 
           </div>
 
