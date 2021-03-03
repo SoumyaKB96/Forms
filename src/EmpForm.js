@@ -78,6 +78,37 @@ export default class EmpFrom extends React.Component {
     }
   };
 
+
+  getValues(){
+    const data={
+      requestId: null,
+      requestType: "",
+      istransfer: false,
+      selectedImage: null,
+
+      empType: "",
+      isContractor: false,
+      transferDept: "",
+      contractorDept: "",
+      otherDept: "",
+      otherLastDate: null,
+
+      empId: null,
+      dept: "",
+      fName: "",
+      lName: "",
+      startDate: null,
+      endDate: null,
+
+
+    }
+  }
+  Validate=()=>{
+
+
+  }
+
+
   render() {
     let transfer;
     if (this.state.istransfer) {
@@ -182,17 +213,7 @@ export default class EmpFrom extends React.Component {
       );
     }
 
-    let systemOptions;
-    if (this.state.system == "Other") {
-      systemOptions = (
-        <div>
-          <label>
-            Please specify Other options :
-            <input type="text" name="system" />
-          </label>
-        </div>
-      );
-    }
+    
 
     return (
       <div>
@@ -225,13 +246,7 @@ export default class EmpFrom extends React.Component {
           <div class="form-group row">
             <div class="col-xs">
               <label>Request ID:</label>
-              <input
-                type="text"
-                class="form-control "
-                id="pwd"
-                name="lname"
-                onChange={(e) => this.setState({ requestId: e.target.value })}
-              />
+             
             </div>
           </div>
           
@@ -239,7 +254,7 @@ export default class EmpFrom extends React.Component {
           <label>Request</label>
           <div class="form-group row">
           
-            <div class="col-xs-1">
+            <div class="col-sm-1">
              
               <input
                 class="form-control"
@@ -250,7 +265,7 @@ export default class EmpFrom extends React.Component {
                 onClick={this.requestTypeHandle}
               /> 
             </div>
-            <div class="col-xs-1">
+            <div class="col-mb-1">
               
               <input
                 class="form-control"
@@ -261,7 +276,7 @@ export default class EmpFrom extends React.Component {
                 onClick={this.requestTypeHandle}
               />
             </div>
-            <div class="col-xs-1">
+            <div class="col-mb-1">
               
               <input
                 class="form-control"
@@ -273,7 +288,7 @@ export default class EmpFrom extends React.Component {
               />
             </div>
 
-            <div class="col-xs-1">
+            <div class="col-mb-1">
               
               <input
                 class="form-control"
@@ -285,7 +300,7 @@ export default class EmpFrom extends React.Component {
               />
             </div>
 
-            <div class="col-sm-1">
+            <div class="col-mb-1">
               
               <input
                 class="form-control"
@@ -459,9 +474,10 @@ export default class EmpFrom extends React.Component {
           </label>
 
           <h4 className="headings"> Workspace Requirements</h4>
-          <div className="Workspace">
+          <div class="form-group row">
+            <div class="col-xs-4">
            
-            <label>System </label>
+            <label>System  &nbsp;</label>
 
             <label class="checkbox-inline">
               <input type="checkbox" value="Desktop" />
@@ -475,10 +491,7 @@ export default class EmpFrom extends React.Component {
               <input type="checkbox" value="Laptop" />
               Laptop
             </label>
-            <label class="checkbox-inline">
-              <input type="checkbox" value="Other"  onclick={e=>this.setState({otherSystem:true})}/>
-              Other
-            </label>
+            
 
             <div class={this.state.otherSystem== true ? "" :"hide"}>
             <label class="checkbox-inline">
@@ -488,7 +501,7 @@ export default class EmpFrom extends React.Component {
             </div>
 
             <br />
-            <label>Phone </label>
+            <label>Phone &nbsp;&nbsp;&nbsp; </label>
 
             <label class="checkbox-inline">
               <input type="checkbox" value="Desk" />
@@ -498,6 +511,9 @@ export default class EmpFrom extends React.Component {
               <input type="checkbox" value="Mobile" />
               Mobile
             </label>
+          </div>
+          <div class="col-xs-4"><input type="textarea"></input></div>
+
           </div>
 
           <h4 className="headings"> Building Access</h4>

@@ -2,7 +2,7 @@
   font-family: Arial;
   padding: 10px;
 
-  background-color: lightcyan;
+  
 }
 
 input[type="text"],
@@ -13,8 +13,10 @@ input[type="date"]
 
   margin: 10px 0;
   display: inline-block;
-  border-color: transparent;
+  
   border-radius: 8px;
+  border-style: solid 8px;
+ 
 }
 
 .image {
